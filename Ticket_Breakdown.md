@@ -20,15 +20,53 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 
 This is extremely important. When the new custom ID enhancement is added, we wanna make sure the previous functionality is not affected.
 
-### Add a Varchar (string) column to the database.
+** Acceptance Criteria **
+- When the agent creation and updating functionality is covered 100% by feature tests and at least 80% by unit tests.
+- When the report generation functionality is covered 100% by feature tests and at least 80% by unit tests.
+- When the agent creation and updating functionality is covered by end to end tests.
+- When the report generation functionality is covered by end to end tests.
 
-When adding a new column, this must be defaulted to a NULL or any other value to account for any existing records that may not have a Custom ID yet. This can be used to track such records and prompt the user to associate a new custom
-ID with them later. Also, ensure that the custom ID is unique for each Facility. It does not have to be unique universally.
+** Time estimates **
+If no previous tests exists at all, this ticket is expected to take 16 to 24 hours of work.
+
+### Add support for custom ID.
+
+Because a user-defined, custom ID could be of any type, it's better to use a string datatype for the column. When adding a new column, this must be defaulted to a NULL or any other value to account for any existing records that may not have a Custom ID yet. This can be used to track such records and prompt the user to associate a new custom ID with them later. Also, ensure that the custom ID is unique for each Facility. It does not have to be unique universally. Incremental database migrations should be used to push these changes to the database schema.
+
+Next, allow users to specify a custom ID when creating a new agent or when updating an existing agent's record. Again, make sure the ID is unique per agent for each facility. As long as the ID is unique per agent per facility, it is okay to allow a facility to update an agent's custom ID later. This should not affect the generation of reports later on as the system will now recognize the new custom ID for the agent when generating a report.
+
+**Acceptance Criteria**
+- When running the migration on a table with existing data, runs smoothly and adds a new column to the table for a custom ID e.g. "custom_id" with a default value of NULL.
+- When a user can specify a custom ID when creating a new agent.
+- When a user can update an existing agent's custom ID.
+- When all of the new functionality is covered with Feature and Unit tests.
+
+**Time estimates**
+This task is epxected to take 16 to 20 hours of work.
+
+
+### Update report generation.
+
+Update the `generateReport` functionality to use the newly added `custom_id` when generating reports. If the `custom_id` does not exist for an agent, then fallback to the agent's internal database ID. This behavior is to be highly anticipated as many of existing agents may not have a custom ID assigned to them or even new agents may still be created without specifying a custom ID for them.
+
+**Acceptance Criteria**
+- When generated reports for agents with custom IDs, uses the agents custom ID in the report.
+- When it safely uses the agent's default database ID if a custom ID does not exist.
+- When all of this functionality is covered with Feature and Unit tests.
+
+**Time estimates**
+This task is epxected to take 8 to 12 hours of work.
+
 
 ### Add UI support for the new feature.
 
-The Frontend UI needs to be updated to allow the users to add a custom ID. This ID also needs to be displayed when the details are being viewed by the user for that facility. Furthermore, UI to search by this custom ID also needs to be added.
+The Frontend UI needs to be updated to allow the users to add a custom ID when creating or updating an Agent's record.. This ID also needs to be displayed when the details are being viewed for an agent.
 
-### Add search feature by custom ID.
+**Acceptance Criteria**
+- When a user can specify a custom ID when creating a new agent.
+- When a user can specify a custom ID when updating an existing agent.
+- When a user gets appropriate error responses associated with this functionality. For example, when using a custom ID that already exists for another agent.
+- When these features are covered by end-to-end (browser) tests.
 
-Update the backend to allow users to search using their custom IDs.
+**Time estimates**
+This task is epxected to take 12 to 16 hours of work.
