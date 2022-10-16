@@ -20,13 +20,13 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 
 This is extremely important. When the new custom ID enhancement is added, we wanna make sure the previous functionality is not affected.
 
-** Acceptance Criteria **
+**Acceptance Criteria**
 - When the agent creation and updating functionality is covered 100% by feature tests and at least 80% by unit tests.
 - When the report generation functionality is covered 100% by feature tests and at least 80% by unit tests.
 - When the agent creation and updating functionality is covered by end to end tests.
 - When the report generation functionality is covered by end to end tests.
 
-** Time estimates **
+**Time estimates**
 If no previous tests exists at all, this ticket is expected to take 16 to 24 hours of work.
 
 ### Add support for custom ID.
