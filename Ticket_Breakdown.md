@@ -27,6 +27,7 @@ This is extremely important. When the new custom ID enhancement is added, we wan
 - When the report generation functionality is covered by end to end tests.
 
 **Time estimates**
+
 If no previous tests exists at all, this ticket is expected to take 16 to 24 hours of work.
 
 ### Add support for custom ID.
@@ -42,6 +43,7 @@ Next, allow users to specify a custom ID when creating a new agent or when updat
 - When all of the new functionality is covered with Feature and Unit tests.
 
 **Time estimates**
+
 This task is epxected to take 16 to 20 hours of work.
 
 
@@ -55,6 +57,7 @@ Update the `generateReport` functionality to use the newly added `custom_id` whe
 - When all of this functionality is covered with Feature and Unit tests.
 
 **Time estimates**
+
 This task is epxected to take 8 to 12 hours of work.
 
 
@@ -69,4 +72,5 @@ The Frontend UI needs to be updated to allow the users to add a custom ID when c
 - When these features are covered by end-to-end (browser) tests.
 
 **Time estimates**
+
 This task is epxected to take 12 to 16 hours of work.
