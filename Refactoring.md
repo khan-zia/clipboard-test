@@ -9,3 +9,5 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+
+Avoid nested if-statements and flatten those. Check for negation of a statement first and return within the if-block which allows for smooth code structure and much better readability. Another strategy was to not repeat a statement when it can be refactored such as the "Hash" function which could be declared once at the top of the function. I have kept the other constant values though as it's much better for readability to use constants instead of literal values.
